@@ -1,6 +1,6 @@
 title: Jacob Gifford
 logo: portfolio/assets/img/headshot.JPG
 description: text below image
-#show_downloads: true
+show_downloads: true
 theme: jekyll-theme-minimal
 
