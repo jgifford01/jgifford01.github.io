@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob Gifford - Portfolio</title>
-    <!-- Add your styles or link to an external stylesheet here -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,22 +38,31 @@
             color: black;
         }
 
-        .main-content {
+        section {
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
         }
-    </style>
 
-    <style>
+        .photo-box {
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
         .photo-box img {
-            width: 100%; /* Adjust the width as needed */
-            height: auto; /* Maintain the aspect ratio */
-            max-width: 400px; /* Set a maximum width if needed */
-            display: block; /* Remove any extra space below the image */
-            margin: 0 auto; /* Center the image horizontally */
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .text-content {
+            flex-grow: 1;
         }
     </style>
-
-    
 </head>
 <body>
 
@@ -69,15 +77,17 @@
         <a href="portfolio.html">Portfolio</a>
         <a href="contact.html">Contact</a>
     </nav>
-    
+
     <section>
-        <h2>Welcome to My Portfolio</h2>
         <div class="photo-box">
             <!-- Adjust the src attribute to point to the correct path within the assets folder -->
             <img src="assets/img/headshot.JPG" alt="Jacob Gifford">
         </div>
-        <p>This is the home section of your portfolio. You can customize this area with information about yourself.</p>
+        <div class="text-content">
+            <h2>Welcome to My Portfolio</h2>
+            <p>This is the home section of your portfolio. You can customize this area with information about yourself.</p>
+        </div>
     </section>
-    
+
 </body>
 </html>
