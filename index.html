@@ -36,8 +36,9 @@
             text-align: center;
             padding: 20px;
             scroll-snap-align: start;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease, background-blur 1s ease; /* Add background-blur transition */
             background: url('assets/img/gsl.gif') center/100% 100% no-repeat; /* Update background property */
+            background-blur: 0; /* Initial blur value */
         }
 
         section.welcome h1 {
@@ -57,7 +58,7 @@
         }
     </style>
 </head>
-<body onclick="location.href='home.html';">
+<body onmousemove="handleMouseMove(event);" onclick="location.href='home.html';">
 
     <header onclick="location.href='home.html';">
         <h1>[ Jacob Gifford ]</h1>
@@ -67,6 +68,14 @@
         <h1>welcome</h1>
         <p>click anywhere to explore</p>
     </section>
+
+    <script>
+        function handleMouseMove(event) {
+            const sectionWelcome = document.querySelector('.welcome');
+            const blurValue = (event.clientX / window.innerWidth) * 10; // Adjust the multiplier as needed
+            sectionWelcome.style.backgroundBlur = `${blurValue}px`;
+        }
+    </script>
 
 </body>
 </html>
