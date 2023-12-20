@@ -11,9 +11,6 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            overflow-x: hidden; /* Hide horizontal scrollbar */
-            margin: 0;
-            scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
         }
 
         header {
@@ -29,39 +26,18 @@
             height: 100px; /* Adjust the height as needed */
         }
 
-        section.welcome {
-            height: 100vh; /* Full height of the viewport */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            scroll-snap-align: start; /* Snap to the start of the section */
-            transition: opacity 0.5s ease; /* Add opacity transition for a smoother effect */
-        }
-
-        section.welcome h1 {
-            font-size: 3em; /* Adjust the font size for the welcome message */
-            margin-bottom: 20px;
-        }
-
         section {
             display: flex;
             align-items: center;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            scroll-snap-align: center; /* Snap to the center of the section */
         }
 
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px; /* Padding between photo boxes */
-            scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
-            opacity: 0; /* Initially hide the photo grid */
-            transition: opacity 0.5s ease; /* Add opacity transition for a smoother effect */
         }
 
         .photo-box {
@@ -116,6 +92,11 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            .photo-box {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -125,63 +106,52 @@
         <h1>[ Jacob Gifford ]</h1>
     </header>
 
-    <section class="welcome">
-        <h1>Welcome to my website</h1>
-        <p>Scroll down to explore</p>
-    </section>
-
-    <section class="photo-grid">
-        <!-- Adjust the src attribute to point to the correct path within the assets folder -->
-        <div class="photo-box">
-            <a href="about.html">
-                <img src="assets/img/headshot.JPG" alt="Photo 1">
-                <div class="hover-text">about me</div>
-            </a>
-        </div>
-        <div class="photo-box" data-filename="cv.pdf" onclick="downloadFile(this)">
-            <a href="#">
-                <img src="assets/img/books.jpg" alt="books">
-                <div class="hover-text">CV</div>
-            </a>
-        </div>
-        <div class="photo-box">
-            <a href="maps.html">
-                <img src="assets/img/tetons.png" alt="tetons">
-                <div class="hover-text">cartography</div>
-            </a>
+    <section>
+        <div class="photo-grid">
+            <!-- Adjust the src attribute to point to the correct path within the assets folder -->
+            <div class="photo-box">
+                <a href="about.html">
+                    <img src="assets/img/headshot.JPG" alt="Photo 1">
+                    <div class="hover-text">about me</div>
+                </a>
+            </div>
+            <div class="photo-box" data-filename="cv.pdf" onclick="downloadFile(this)">
+                <a href="#">
+                    <img src="assets/img/books.jpg" alt="books">
+                    <div class="hover-text">CV</div>
+                </a>
+            </div>
+            <div class="photo-box">
+                <a href="maps.html">
+                    <img src="assets/img/tetons.png" alt="tetons">
+                    <div class="hover-text">cartography</div>
+                </a>
+            </div>
+            
         </div>
     </section>
 
     <script>
-        // Lock scroll behavior after the user starts scrolling
-        var scrollLocked = false;
+        function downloadFile(element) {
+            // Get the filename from the data-filename attribute
+            var filename = element.getAttribute('data-filename');
 
-        window.addEventListener('scroll', function() {
-            if (!scrollLocked) {
-                scrollLocked = true;
+            // Create a dummy link element
+            var link = document.createElement('a');
 
-                // Calculate the scroll position
-                var scrollPosition = window.scrollY;
+            // Set the download attribute and href with the correct path to the file
+            link.download = filename;
+            link.href = 'assets/files/cv.pdf';
 
-                // Set the scroll position to the center of the photo grid section
-                var photoGridSection = document.querySelector('.photo-grid');
-                var photoGridCenter = photoGridSection.offsetTop + photoGridSection.offsetHeight / 2;
+            // Append the link to the document
+            document.body.appendChild(link);
 
-                if (scrollPosition < photoGridCenter) {
-                    // Scroll is in the welcome section, scroll to the top of the photo grid
-                    window.scrollTo({ top: photoGridSection.offsetTop, behavior: 'smooth' });
-                } else {
-                    // Scroll is in the photo grid section, lock scroll and hide welcome section
-                    document.querySelector('.welcome').style.opacity = '0';
-                    document.querySelector('.photo-grid').style.opacity = '1';
+            // Trigger a click event on the link to start the download
+            link.click();
 
-                    // Wait for the scrolling animation to finish
-                    setTimeout(function() {
-                        scrollLocked = false;
-                    }, 500); // Adjust the timeout value based on your animation duration
-                }
-            }
-        });
+            // Remove the link from the document
+            document.body.removeChild(link);
+        }
     </script>
 
 </body>
