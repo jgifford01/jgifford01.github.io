@@ -63,6 +63,11 @@
             overflow: hidden;
             cursor: pointer;
             aspect-ratio: 1; /* Maintain a 1:1 aspect ratio for square boxes */
+            transition: filter 0.3s; /* Add a smooth transition for the blur effect */
+        }
+
+        .photo-box:hover {
+            filter: blur(4px); /* Apply a blur effect on hover */
         }
 
         .photo-box img {
@@ -75,6 +80,19 @@
         .text-content {
             flex-grow: 1;
             text-align: justify;
+        }
+
+        .hover-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .photo-box:hover .hover-text {
+            opacity: 1;
         }
 
         @media only screen and (max-width: 600px) {
@@ -109,31 +127,37 @@
             <div class="photo-box">
                 <a href="about.html">
                     <img src="assets/img/headshot.JPG" alt="Photo 1">
+                    <div class="hover-text">About Me</div>
                 </a>
             </div>
             <div class="photo-box" data-filename="cv.pdf" onclick="downloadFile(this)">
                 <a href="#">
                     <img src="assets/img/books.jpg" alt="books">
+                    <div class="hover-text">Download CV</div>
                 </a>
             </div>
             <div class="photo-box">
                 <a href="page3.html">
                     <img src="assets/img/photo3.jpg" alt="Photo 3">
+                    <div class="hover-text">Page 3</div>
                 </a>
             </div>
             <div class="photo-box">
                 <a href="page4.html">
                     <img src="assets/img/photo4.jpg" alt="Photo 4">
+                    <div class="hover-text">Page 4</div>
                 </a>
             </div>
             <div class="photo-box">
                 <a href="page5.html">
                     <img src="assets/img/photo5.jpg" alt="Photo 5">
+                    <div class="hover-text">Page 5</div>
                 </a>
             </div>
             <div class="photo-box">
                 <a href="page6.html">
                     <img src="assets/img/photo6.jpg" alt="Photo 6">
+                    <div class="hover-text">Page 6</div>
                 </a>
             </div>
         </div>
@@ -164,3 +188,4 @@
 
 </body>
 </html>
+
