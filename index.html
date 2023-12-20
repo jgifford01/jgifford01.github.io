@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
         }
 
         header {
@@ -24,6 +25,21 @@
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
             height: 100px; /* Adjust the height as needed */
+        }
+
+        section.welcome {
+            height: 100vh; /* Full height of the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        section.welcome h1 {
+            font-size: 3em; /* Adjust the font size for the welcome message */
+            margin-bottom: 20px;
         }
 
         section {
@@ -105,6 +121,11 @@
     <header onclick="location.href='index.html';">
         <h1>[ Jacob Gifford ]</h1>
     </header>
+
+    <section class="welcome">
+        <h1>Welcome to my website</h1>
+        <p>Scroll down to explore</p>
+    </section>
 
     <section>
         <div class="photo-grid">
