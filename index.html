@@ -77,11 +77,6 @@
             display: block;
         }
 
-        .text-content {
-            flex-grow: 1;
-            text-align: justify;
-        }
-
         .hover-text {
             position: absolute;
             top: 50%;
@@ -95,6 +90,12 @@
 
         .photo-box:hover .hover-text {
             opacity: 1;
+            filter: blur(0); /* Remove blur on hover to keep text in focus */
+        }
+
+        .text-content {
+            flex-grow: 1;
+            text-align: justify;
         }
 
         @media only screen and (max-width: 600px) {
