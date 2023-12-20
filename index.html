@@ -9,9 +9,9 @@
             font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Hide horizontal scrollbar */
+            overflow-x: hidden;
             margin: 0;
-            scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+            scroll-snap-type: y mandatory;
         }
 
         header {
@@ -20,39 +20,39 @@
             font-size: 0.6em;
             letter-spacing: 5px;
             font-family: 'Helvetica', sans-serif;
-            cursor: pointer; /* Add cursor pointer for indicating clickability */
+            cursor: pointer;
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: 100px; /* Adjust the height as needed */
+            justify-content: center;
+            align-items: center;
+            height: 100px;
         }
 
         section.welcome {
-            height: 100vh; /* Full height of the viewport */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
-            scroll-snap-align: start; /* Snap to the start of the section */
-            transition: opacity 0.5s ease; /* Add opacity transition for a smoother effect */
-            background: url('assets/img/gsl.gif') center/cover no-repeat; /* Add background photo */
+            scroll-snap-align: start;
+            transition: opacity 0.5s ease;
+            background: url('assets/img/gsl.gif') center/100% 100% no-repeat; /* Update background property */
         }
 
         section.welcome h1 {
-            font-size: 3em; /* Adjust the font size for the welcome message */
+            font-size: 3em;
             margin-bottom: 20px;
-            color: #fff; /* Adjust text color for visibility on the photo */
+            color: #fff;
         }
 
         section.welcome p {
-            color: #fff; /* Adjust text color for visibility on the photo */
+            color: #fff;
         }
 
         @media only screen and (max-width: 600px) {
             section.welcome h1 {
-                font-size: 2em; /* Adjust the font size for smaller screens */
+                font-size: 2em;
             }
         }
     </style>
@@ -65,7 +65,7 @@
 
     <section class="welcome">
         <h1>welcome</h1>
-        <p>click anywhere to enter site</p>
+        <p>click anywhere to explore</p>
     </section>
 
 </body>
