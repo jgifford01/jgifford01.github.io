@@ -38,6 +38,7 @@
             text-align: center;
             padding: 20px;
             scroll-snap-align: start; /* Snap to the start of the section */
+            transition: opacity 0.5s ease; /* Add opacity transition for a smoother effect */
         }
 
         section.welcome h1 {
@@ -59,6 +60,8 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 20px; /* Padding between photo boxes */
             scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+            opacity: 0; /* Initially hide the photo grid */
+            transition: opacity 0.5s ease; /* Add opacity transition for a smoother effect */
         }
 
         .photo-box {
@@ -112,11 +115,6 @@
             section {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-
-            .photo-box {
-                margin-right: 0;
-                margin-bottom: 20px;
             }
         }
     </style>
@@ -172,6 +170,15 @@
                 if (scrollPosition < photoGridCenter) {
                     // Scroll is in the welcome section, scroll to the top of the photo grid
                     window.scrollTo({ top: photoGridSection.offsetTop, behavior: 'smooth' });
+                } else {
+                    // Scroll is in the photo grid section, lock scroll and hide welcome section
+                    document.querySelector('.welcome').style.opacity = '0';
+                    document.querySelector('.photo-grid').style.opacity = '1';
+
+                    // Wait for the scrolling animation to finish
+                    setTimeout(function() {
+                        scrollLocked = false;
+                    }, 500); // Adjust the timeout value based on your animation duration
                 }
             }
         });
