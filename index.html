@@ -67,7 +67,7 @@
         }
 
         .photo-box:hover {
-            filter: blur(4px); /* Apply a blur effect on hover */
+            filter: blur(0); /* Remove blur on hover */
         }
 
         .photo-box img {
@@ -86,109 +86,4 @@
             opacity: 0;
             transition: opacity 0.3s, font-size 0.3s, color 0.3s;
             font-size: 1.5em; /* Adjust the font size as needed */
-            color: #fff; /* White color */
-        }
-
-        .photo-box:hover .hover-text {
-            opacity: 1;
-            filter: blur(0); /* Remove blur on hover to keep text in focus */
-        }
-
-        .text-content {
-            flex-grow: 1;
-            text-align: justify;
-        }
-
-        @media only screen and (max-width: 600px) {
-            section {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .photo-box {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>[ Jacob Gifford ]</h1>
-    </header>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
-    <section>
-        <div class="photo-grid">
-            <!-- Adjust the src attribute to point to the correct path within the assets folder -->
-            <div class="photo-box">
-                <a href="about.html">
-                    <img src="assets/img/headshot.JPG" alt="Photo 1">
-                    <div class="hover-text">About Me</div>
-                </a>
-            </div>
-            <div class="photo-box" data-filename="cv.pdf" onclick="downloadFile(this)">
-                <a href="#">
-                    <img src="assets/img/books.jpg" alt="books">
-                    <div class="hover-text">Download CV</div>
-                </a>
-            </div>
-            <div class="photo-box">
-                <a href="page3.html">
-                    <img src="assets/img/photo3.jpg" alt="Photo 3">
-                    <div class="hover-text">Page 3</div>
-                </a>
-            </div>
-            <div class="photo-box">
-                <a href="page4.html">
-                    <img src="assets/img/photo4.jpg" alt="Photo 4">
-                    <div class="hover-text">Page 4</div>
-                </a>
-            </div>
-            <div class="photo-box">
-                <a href="page5.html">
-                    <img src="assets/img/photo5.jpg" alt="Photo 5">
-                    <div class="hover-text">Page 5</div>
-                </a>
-            </div>
-            <div class="photo-box">
-                <a href="page6.html">
-                    <img src="assets/img/photo6.jpg" alt="Photo 6">
-                    <div class="hover-text">Page 6</div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function downloadFile(element) {
-            // Get the filename from the data-filename attribute
-            var filename = element.getAttribute('data-filename');
-
-            // Create a dummy link element
-            var link = document.createElement('a');
-
-            // Set the download attribute and href with the correct path to the file
-            link.download = filename;
-            link.href = 'assets/files/cv.pdf';
-
-            // Append the link to the document
-            document.body.appendChild(link);
-
-            // Trigger a click event on the link to start the download
-            link.click();
-
-            // Remove the link from the document
-            document.body.removeChild(link);
-        }
-    </script>
-
-</body>
-</html>
+            color: #fff; /* White c
