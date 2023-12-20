@@ -63,6 +63,7 @@
             max-width: 400px;
             display: block;
             margin: 0 auto;
+            cursor: pointer;
         }
 
         .text-content {
@@ -97,11 +98,63 @@
     </nav>
 
     <section>
-        <div class="photo-box">
+        <div class="photo-grid">
             <!-- Adjust the src attribute to point to the correct path within the assets folder -->
-            <img src="assets/img/headshot.JPG" alt="Jacob Gifford">
+            <div class="photo-box">
+                <a href="about.html">
+                    <img src="assets/img/headshot.JPG" alt="Photo 1">
+                </a>
+            </div>
+            <div class="photo-box" data-filename="file1.pdf" onclick="downloadFile(this)">
+                <a href="CV.html">
+                    <img src="assets/img/books.jpg" alt="books">
+                </a>
+            </div>
+            <div class="photo-box">
+                <a href="page3.html">
+                    <img src="assets/img/photo3.jpg" alt="Photo 3">
+                </a>
+            </div>
+            <div class="photo-box">
+                <a href="page4.html">
+                    <img src="assets/img/photo4.jpg" alt="Photo 4">
+                </a>
+            </div>
+            <div class="photo-box">
+                <a href="page5.html">
+                    <img src="assets/img/photo5.jpg" alt="Photo 5">
+                </a>
+            </div>
+            <div class="photo-box">
+                <a href="page6.html">
+                    <img src="assets/img/photo6.jpg" alt="Photo 6">
+                </a>
+            </div>
         </div>
     </section>
+    
+<script>
+        function downloadFile(element) {
+            // Get the filename from the data-filename attribute
+            var filename = element.getAttribute('data-filename');
 
+            // Create a dummy link element
+            var link = document.createElement('a');
+
+            // Set the download attribute and href with the filename and content
+            link.download = filename;
+            link.href = 'assets/test/testfile.pdf' + encodeURIComponent('This is the content of the file.');
+
+            // Append the link to the document
+            document.body.appendChild(link);
+
+            // Trigger a click event on the link to start the download
+            link.click();
+
+            // Remove the link from the document
+            document.body.removeChild(link);
+        }
+    </script>
+    
 </body>
 </html>
