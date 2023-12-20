@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Gifford</title>
+    <title>[ Jacob Gifford ]</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -11,6 +11,9 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+            margin: 0;
+            scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
         }
 
         header {
@@ -26,133 +29,40 @@
             height: 100px; /* Adjust the height as needed */
         }
 
-        section {
+        section.welcome {
+            height: 100vh; /* Full height of the viewport */
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
+            text-align: center;
             padding: 20px;
+            scroll-snap-align: start; /* Snap to the start of the section */
+            transition: opacity 0.5s ease; /* Add opacity transition for a smoother effect */
         }
 
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px; /* Padding between photo boxes */
-        }
-
-        .photo-box {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            aspect-ratio: 1; /* Maintain a 1:1 aspect ratio for square boxes */
-            transition: filter 0.3s; /* Add a smooth transition for the blur effect */
-            display: flex;
-            justify-content: center; /* Center the content horizontally */
-            align-items: center; /* Center the content vertically */
-        }
-
-        .photo-box:hover img {
-            filter: blur(4px); /* Apply a blur effect on photo hover */
-        }
-
-        .photo-box img {
-            width: 100%;
-            height: auto;
-            max-height: 300px; /* Adjust the max-height for larger images */
-            object-fit: cover;
-            display: block;
-            transition: filter 0.3s; /* Add a smooth transition for the blur effect */
-        }
-
-        .hover-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.3s, font-size 0.3s, color 0.3s;
-            font-size: 1.5em; /* Adjust the font size as needed */
-            font-family: 'Helvetica', sans-serif; /* Add Helvetica as the font-family */
-            color: #fff; /* White color */
-            z-index: 1; /* Ensure text appears above the image */
-            font-weight: bold; /* Make the text bold */
-        }
-
-        .photo-box:hover .hover-text {
-            opacity: 1;
-        }
-
-        .text-content {
-            flex-grow: 1;
-            text-align: justify;
+        section.welcome h1 {
+            font-size: 3em; /* Adjust the font size for the welcome message */
+            margin-bottom: 20px;
         }
 
         @media only screen and (max-width: 600px) {
-            section {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .photo-box {
-                margin-right: 0;
-                margin-bottom: 20px;
+            section.welcome h1 {
+                font-size: 2em; /* Adjust the font size for smaller screens */
             }
         }
     </style>
 </head>
-<body>
+<body onclick="location.href='home.html';">
 
-    <header onclick="location.href='index.html';">
+    <header onclick="location.href='home.html';">
         <h1>[ Jacob Gifford ]</h1>
     </header>
 
-    <section>
-        <div class="photo-grid">
-            <!-- Adjust the src attribute to point to the correct path within the assets folder -->
-            <div class="photo-box">
-                <a href="about.html">
-                    <img src="assets/img/headshot.JPG" alt="Photo 1">
-                    <div class="hover-text">about me</div>
-                </a>
-            </div>
-            <div class="photo-box" data-filename="cv.pdf" onclick="downloadFile(this)">
-                <a href="#">
-                    <img src="assets/img/books.jpg" alt="books">
-                    <div class="hover-text">CV</div>
-                </a>
-            </div>
-            <div class="photo-box">
-                <a href="maps.html">
-                    <img src="assets/img/tetons.png" alt="tetons">
-                    <div class="hover-text">cartography</div>
-                </a>
-            </div>
-            
-        </div>
+    <section class="welcome">
+        <h1>Welcome to my website</h1>
+        <p>Click anywhere to explore</p>
     </section>
-
-    <script>
-        function downloadFile(element) {
-            // Get the filename from the data-filename attribute
-            var filename = element.getAttribute('data-filename');
-
-            // Create a dummy link element
-            var link = document.createElement('a');
-
-            // Set the download attribute and href with the correct path to the file
-            link.download = filename;
-            link.href = 'assets/files/cv.pdf';
-
-            // Append the link to the document
-            document.body.appendChild(link);
-
-            // Trigger a click event on the link to start the download
-            link.click();
-
-            // Remove the link from the document
-            document.body.removeChild(link);
-        }
-    </script>
 
 </body>
 </html>
