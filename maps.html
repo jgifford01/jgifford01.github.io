@@ -16,32 +16,12 @@
         header {
             background-color: #f4f4f4;
             color: #333;
-            text-align: left;
+            text-align: center;
             font-size: 0.6em;
             padding: 1em 1em;
             letter-spacing: 5px;
             font-family: 'Helvetica', sans-serif;
-        }
-
-        nav {
-            background-color: #CACACA;
-            overflow: hidden;
-            font-family: 'Helvetica', sans-serif;
-        }
-
-        nav a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-family: 'Helvetica', sans-serif;
-        }
-
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
+            cursor: pointer;
         }
 
         .photos {
@@ -54,7 +34,7 @@
         }
 
         .photo-box {
-            flex-basis: calc(25% - 20px); /* Adjusted to make thumbnails 20% larger */
+            flex-basis: calc(125% - 20px); /* Adjusted to make thumbnails 20% larger */
             margin: 10px;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -79,16 +59,9 @@
 </head>
 <body>
 
-<header>
+<header onclick="window.location.href='index.html'">
     <h1>[ Jacob Gifford ]</h1>
 </header>
-
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
-</nav>
 
 <div class="photos" id="gallery">
     <!-- Images will be dynamically added here via JavaScript -->
@@ -111,13 +84,11 @@
         "books.jpg",
         "currents_HI.gif",
         "gsl.gif",
-        "headshot.JPG",
         "image (1).jpg",
         "image (2).jpg",
         "image (3).jpg",
         "image.jpg",
         "image.png",
-        "maroc.jpg",
         "rainier.jpg",
         "tetons.png"
     ];
