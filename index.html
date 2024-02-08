@@ -28,6 +28,7 @@
         }
 
         section.welcome {
+            position: relative;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -37,24 +38,26 @@
             padding: 20px;
             scroll-snap-align: start;
             transition: opacity 0.5s ease, background-blur 1s ease; /* Add background-blur transition */
+            overflow: hidden; /* Hide overflow to prevent the blur from extending beyond the section */
+        }
+
+        section.welcome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: url('assets/img/rainier.jpg') center/cover no-repeat; /* Update background property */
-            background-blur: 0; /* Initial blur value */
+            background-blur: 20px; /* Adjust the blur value */
+            z-index: -1; /* Place behind other content */
         }
 
-        section.welcome h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9); /* Set text color with some transparency */
-            background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent background behind the text */
-            padding: 10px 20px; /* Add padding to the text */
-            border-radius: 10px; /* Add border-radius for rounded corners */
-        }
-
+        section.welcome h1,
         section.welcome p {
+            position: relative; /* Ensure text is positioned above the blurred background */
+            z-index: 1; /* Place text above the blurred background */
             color: rgba(255, 255, 255, 0.9); /* Set text color with some transparency */
-            background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent background behind the text */
-            padding: 10px 20px; /* Add padding to the text */
-            border-radius: 10px; /* Add border-radius for rounded corners */
         }
 
         @media only screen and (max-width: 600px) {
