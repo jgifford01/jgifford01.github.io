@@ -54,8 +54,14 @@
         }
 
         .photo-box {
-            flex-basis: calc(33.33% - 20px);
+            flex-basis: calc(25% - 20px); /* Adjusted to make thumbnails 20% larger */
             margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-box:hover {
+            transform: scale(1.1);
         }
 
         .photo-box img {
@@ -84,77 +90,52 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<div class="photos">
-    <div class="photo-box">
-        <img src="assets/img/1699918381408.jpeg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Flood Stage Model.gif" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/GSL_Layout.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/GTNP_CATHEDRAL3D.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Imhof_Idaho.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Layou1t.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Layout4.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Layout6Resize.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Layout8.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Map.png" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/Tetons.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/books.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/currents_HI.gif" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/gsl.gif" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/headshot.JPG" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/image (1).jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/image (2).jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/image (3).jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/image.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/image.png" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/maroc.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/rainier.jpg" alt="">
-    </div>
-    <div class="photo-box">
-        <img src="assets/img/tetons.png" alt="">
-    </div>
+<div class="photos" id="gallery">
+    <!-- Images will be dynamically added here via JavaScript -->
 </div>
+
+<script>
+    // JavaScript to dynamically add images and handle expanding functionality
+    const images = [
+        "1699918381408.jpeg",
+        "Flood Stage Model.gif",
+        "GSL_Layout.jpg",
+        "GTNP_CATHEDRAL3D.jpg",
+        "Imhof_Idaho.jpg",
+        "Layou1t.jpg",
+        "Layout4.jpg",
+        "Layout6Resize.jpg",
+        "Layout8.jpg",
+        "Map.png",
+        "Tetons.jpg",
+        "books.jpg",
+        "currents_HI.gif",
+        "gsl.gif",
+        "headshot.JPG",
+        "image (1).jpg",
+        "image (2).jpg",
+        "image (3).jpg",
+        "image.jpg",
+        "image.png",
+        "maroc.jpg",
+        "rainier.jpg",
+        "tetons.png"
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    images.forEach(image => {
+        const photoBox = document.createElement("div");
+        photoBox.className = "photo-box";
+        photoBox.innerHTML = `<img src="assets/img/${image}" alt="${image}">`;
+        gallery.appendChild(photoBox);
+
+        // Expand functionality
+        photoBox.addEventListener("click", () => {
+            window.open(`assets/img/${image}`, "_blank");
+        });
+    });
+</script>
 
 </body>
 </html>
