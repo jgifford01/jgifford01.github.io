@@ -3,132 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Gifford - about</title>
+    <title>[ Jacob Gifford ]</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            overflow-x: hidden;
+            margin: 0;
+            scroll-snap-type: y mandatory;
         }
 
         header {
             background-color: #f4f4f4;
             color: #333;
-            text-align: center;
             font-size: 0.6em;
-            padding: 1em 1em;
             letter-spacing: 5px;
             font-family: 'Helvetica', sans-serif;
             cursor: pointer;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .photos {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            height: 150px; /* Increased height for better spacing */
             justify-content: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
-        .photo-box {
-            flex-basis: calc(25% - 20px); /* Adjusted to make thumbnails 20% larger */
-            margin: 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+        section.welcome {
+            position: relative;
+            height: 100vh;
+            transition: opacity 0.5s ease, background-blur 1s ease;
+            overflow: hidden;
         }
 
-        .photo-box:hover {
-            transform: scale(1.1);
-        }
-
-        .photo-box img {
+        section.welcome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            background: url('assets/img/rainier.jpg') center/cover no-repeat;
+            background-blur: 20px;
+            z-index: -1;
         }
 
-        .lorem-ipsum {
-            max-width: calc(25% - 20px); /* Same width as photo-box */
-            margin: 20px auto;
-            padding: 0 20px;
-            text-align: justify;
+        header h1 {
+            margin-bottom: 10px; /* Adjusted margin */
+        }
+
+        header p {
+            margin-top: 10px; /* Added margin to separate from header */
         }
 
         @media only screen and (max-width: 600px) {
-            .photo-box {
-                flex-basis: calc(50% - 20px);
-            }
-
-            .lorem-ipsum {
-                max-width: calc(50% - 20px);
+            section.welcome h1 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
-<body>
+<body onmousemove="handleMouseMove(event);" onclick="location.href='home.html';">
 
-<div class="container">
-    <!-- Lorem Ipsum paragraph -->
-    <p class="lorem-ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo nunc id elit vestibulum, nec rhoncus nisl suscipit. Nullam non tincidunt ante, at vestibulum libero. Fusce euismod pharetra eros nec convallis. Sed sodales volutpat justo. Sed nec hendrerit nisl. Integer nec metus dapibus, lacinia orci ac, tincidunt est. Donec ullamcorper justo et velit lobortis tempor. Vivamus nec tristique magna. Aenean varius orci nisi, nec tincidunt quam scelerisque eget. Nullam pretium odio nec tellus scelerisque faucibus.</p>
-</div>
+    <header onclick="location.href='home.html';">
+        <h1>[ Jacob Gifford ]</h1>
+        <p>click anywhere to explore</p>
+    </header>
 
-<header onclick="window.location.href='index.html'">
-    <h1>[ Jacob Gifford ]</h1>
-</header>
+    <section class="welcome"></section>
 
-<div class="photos" id="gallery">
-    <!-- Images will be dynamically added here via JavaScript -->
-</div>
-
-<script>
-    // JavaScript to dynamically add images and handle expanding functionality
-    const images = [
-        "1699918381408.jpeg",
-        "Flood Stage Model.gif",
-        "GSL_Layout.jpg",
-        "GTNP_CATHEDRAL3D.jpg",
-        "Imhof_Idaho.jpg",
-        "Layou1t.jpg",
-        "Layout4.jpg",
-        "Layout6Resize.jpg",
-        "Layout8.jpg",
-        "Map.png",
-        "Tetons.jpg",
-        "currents_HI.gif",
-        "gsl.gif",
-        "image (1).jpg",
-        "image (2).jpg",
-        "image (3).jpg",
-        "image.jpg",
-        "image.png",
-        "rainier.jpg",
-        "tetons.png"
-    ];
-
-    const gallery = document.getElementById("gallery");
-
-    images.forEach(image => {
-        const photoBox = document.createElement("div");
-        photoBox.className = "photo-box";
-        photoBox.innerHTML = `<img src="assets/img/${image}" alt="${image}">`;
-        gallery.appendChild(photoBox);
-
-        // Expand functionality
-        photoBox.addEventListener("click", () => {
-            window.open(`assets/img/${image}`, "_blank");
-        });
-    });
-</script>
+    <script>
+        function handleMouseMove(event) {
+            const sectionWelcome = document.querySelector('.welcome');
+            const blurValue = (event.clientX / window.innerWidth) * 10;
+            sectionWelcome.style.backgroundBlur = `${blurValue}px`;
+        }
+    </script>
 
 </body>
 </html>
