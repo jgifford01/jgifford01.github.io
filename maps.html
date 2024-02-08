@@ -6,7 +6,7 @@
     <title>Jacob Gifford - about</title>
     <style>
         body {
-             font-family: 'Times New Roman', Times, serif;
+            font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -44,67 +44,117 @@
             color: black;
         }
 
-        section {
+        .photos {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .photo-box {
-            flex-shrink: 0;
-            margin-right: 20px;
+            flex-basis: calc(33.33% - 20px);
+            margin: 10px;
         }
 
         .photo-box img {
             width: 100%;
             height: auto;
-            max-width: 400px;
             display: block;
-            margin: 0 auto;
-        }
-
-        .text-content {
-            flex-grow: 1;
-             text-align: justify;
         }
 
         @media only screen and (max-width: 600px) {
-            section {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
             .photo-box {
-                margin-right: 0;
-                margin-bottom: 20px;
+                flex-basis: calc(50% - 20px);
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>[ Jacob Gifford ]</h1>
-    </header>
+<header>
+    <h1>[ Jacob Gifford ]</h1>
+</header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-    <section>
-        <div class="photo-box">
-            <!-- Adjust the src attribute to point to the correct path within the assets folder -->
-            <img src="assets/img/headshot.JPG" alt="Jacob Gifford">
-        </div>
-        <div class="text-content">
-            <p>Welcome to My Map Portfolio!</p>
-        </div>
-    </section>
+<div class="photos">
+    <div class="photo-box">
+        <img src="assets/1699918381408.jpeg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Flood Stage Model.gif" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/GSL_Layout.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/GTNP_CATHEDRAL3D.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Imhof_Idaho.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Layou1t.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Layout4.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Layout6Resize.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Layout8.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Map.png" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/Tetons.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/books.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/currents_HI.gif" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/gsl.gif" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/headshot.JPG" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/image (1).jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/image (2).jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/image (3).jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/image.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/image.png" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/maroc.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/rainier.jpg" alt="">
+    </div>
+    <div class="photo-box">
+        <img src="assets/tetons.png" alt="">
+    </div>
+</div>
 
 </body>
 </html>
