@@ -11,6 +11,9 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            max-width: 800px; /* Set maximum width */
+            margin: 0 auto; /* Center content horizontally */
+            padding: 20px; /* Add padding */
         }
 
         header {
@@ -28,9 +31,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            padding-top: 20px; /* Add some space between header and gallery */
         }
 
         .photo-box {
@@ -62,6 +63,8 @@
 <header onclick="window.location.href='index.html'">
     <h1>[ Jacob Gifford ]</h1>
 </header>
+
+<p style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo nunc id elit vestibulum, nec rhoncus nisl suscipit. Nullam non tincidunt ante, at vestibulum libero. Fusce euismod pharetra eros nec convallis. Sed sodales volutpat justo. Sed nec hendrerit nisl. Integer nec metus dapibus, lacinia orci ac, tincidunt est. Donec ullamcorper justo et velit lobortis tempor. Vivamus nec tristique magna. Aenean varius orci nisi, nec tincidunt quam scelerisque eget. Nullam pretium odio nec tellus scelerisque faucibus.</p>
 
 <div class="photos" id="gallery">
     <!-- Images will be dynamically added here via JavaScript -->
@@ -106,6 +109,5 @@
         });
     });
 </script>
-<p style="text-align: center; margin-top: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo nunc id elit vestibulum, nec rhoncus nisl suscipit. Nullam non tincidunt ante, at vestibulum libero. Fusce euismod pharetra eros nec convallis. Sed sodales volutpat justo. Sed nec hendrerit nisl. Integer nec metus dapibus, lacinia orci ac, tincidunt est. Donec ullamcorper justo et velit lobortis tempor. Vivamus nec tristique magna. Aenean varius orci nisi, nec tincidunt quam scelerisque eget. Nullam pretium odio nec tellus scelerisque faucibus.</p>
 </body>
 </html>
