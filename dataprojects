@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Welcome to My Website</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero id diam varius faucibus. Nulla facilisi. Phasellus venenatis dapibus magna, id luctus elit accumsan eget. Nulla facilisi. In hac habitasse platea dictumst. Nunc eget odio non tortor interdum vestibulum. Nullam ullamcorper velit id quam congue, eu rhoncus turpis aliquet.</p>
+        <p>Quisque non nunc non magna rutrum cursus at nec sem. Donec vehicula vestibulum lorem, at varius sapien mollis ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ultricies arcu id suscipit viverra.</p>
+        <div style="min-height:400px">
+            <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/PEU29/embed.js?v=1" charset="utf-8"></script>
+            <noscript><img src="https://datawrapper.dwcdn.net/PEU29/full.png" alt="" /></noscript>
+        </div>
+        <p>Integer vitae pretium odio. Fusce tincidunt orci nec magna ullamcorper condimentum. Etiam eu risus in sapien faucibus luctus ut nec ipsum. Vestibulum dignissim, lorem non mattis ultricies, tortor sapien consectetur turpis, a commodo ex neque quis eros.</p>
+    </div>
+</body>
+</html>
