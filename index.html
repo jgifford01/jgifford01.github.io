@@ -13,22 +13,29 @@
             color: #333;
         }
 
-        
-header {
-    background-color: #f4f4f4;
-    color: #333;
-    font-size: 0.6em;
-    letter-spacing: 5px;
-    font-family: 'Helvetica', sans-serif;
-    cursor: pointer;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 150px; /* Adjust the height as needed */
-}
+        header {
+            background-color: #f4f4f4;
+            color: #333;
+            font-size: 0.6em;
+            letter-spacing: 5px;
+            font-family: 'Helvetica', sans-serif;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
 
         section {
             display: flex;
+            flex-direction: column;
             align-items: center;
             max-width: 800px;
             margin: 0 auto;
@@ -38,31 +45,32 @@ header {
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px; /* Padding between photo boxes */
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .photo-box {
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            aspect-ratio: 1; /* Maintain a 1:1 aspect ratio for square boxes */
-            transition: filter 0.3s; /* Add a smooth transition for the blur effect */
+            aspect-ratio: 1;
+            transition: filter 0.3s;
             display: flex;
-            justify-content: center; /* Center the content horizontally */
-            align-items: center; /* Center the content vertically */
+            justify-content: center;
+            align-items: center;
         }
 
         .photo-box:hover img {
-            filter: blur(4px); /* Apply a blur effect on photo hover */
+            filter: blur(4px);
         }
 
         .photo-box img {
             width: 100%;
             height: auto;
-            max-height: 350px; /* Adjust the max-height for larger images */
+            max-height: 350px;
             object-fit: cover;
             display: block;
-            transition: filter 0.3s; /* Add a smooth transition for the blur effect */
+            transition: filter 0.3s;
         }
 
         .hover-text {
@@ -71,34 +79,23 @@ header {
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
-            transition: opacity 0.3s, font-size 0.3s, color 0.3s;
-            font-size: 1.5em; /* Adjust the font size as needed */
-            font-family: 'Helvetica', sans-serif; /* Add Helvetica as the font-family */
-            color: #fff; /* White color */
-            z-index: 1; /* Ensure text appears above the image */
-            /*font-weight: bold; /* Make the text bold */
+            transition: opacity 0.3s;
+            font-size: 1.5em;
+            font-family: 'Helvetica', sans-serif;
+            color: #fff;
+            z-index: 1;
         }
 
         .photo-box:hover .hover-text {
             opacity: 1;
         }
 
-        .text-content {
-            flex-grow: 1;
-            text-align: justify;
-        }
-
         @media only screen and (max-width: 600px) {
-            section {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .photo-box {
-                margin-right: 0;
-                margin-bottom: 20px;
+            .photo-grid {
+                grid-template-columns: 1fr;
             }
         }
+
     </style>
 </head>
 <body>
@@ -108,47 +105,35 @@ header {
     </header>
 
     <section>
+
+        <div class="intro-text">Click below</div>
+
         <div class="photo-grid">
-            <!-- Adjust the src attribute to point to the correct path within the assets folder -->
-            <div class="photo-box">
-                <a href="about.html">
-                    <img src="assets/img/headshot.JPG" alt="Photo 1">
-                    <div class="hover-text">About Me</div>
-                </a>
+
+            <div class="photo-box" onclick="location.href='about.html';">
+                <img src="assets/img/headshot.JPG" alt="Photo 1">
+                <div class="hover-text">About Me</div>
             </div>
+
             <div class="photo-box" data-filename="assets/files/Gifford_CV.pdf" onclick="downloadFile(this)">
-                <a href="#">
-                    <img src="assets/img/books.jpg" alt="books">
-                    <div class="hover-text">CV</div>
-                </a>
+                <img src="assets/img/books.jpg" alt="books">
+                <div class="hover-text">CV</div>
             </div>
-            
+
         </div>
     </section>
 
     <script>
         function downloadFile(element) {
-            // Get the filename from the data-filename attribute
-            var filename = element.getAttribute('data-filename');
-
-            // Create a dummy link element
+            var filePath = element.getAttribute('data-filename');
             var link = document.createElement('a');
-
-            // Set the download attribute and href with the correct path to the file
-            link.download = filename;
-            link.href = 'assets/files/Gifford_CV.pdf';
-
-            // Append the link to the document
+            link.href = filePath;
+            link.download = '';
             document.body.appendChild(link);
-
-            // Trigger a click event on the link to start the download
             link.click();
-
-            // Remove the link from the document
             document.body.removeChild(link);
         }
     </script>
 
 </body>
 </html>
-
