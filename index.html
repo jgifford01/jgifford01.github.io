@@ -10,8 +10,8 @@
             --text: #222;
             --muted: #5f5f5f;
             --rule: #dccdbf;
-            --accent: #5b6e4f;       /* sagebrush green, dark enough for link text */
-            --accent-light: #a3b18f; /* lighter sage for decorative lines */
+            --accent: #5f6b57;       /* desert sage, dark enough for link text */
+            --accent-light: #a9b09f; /* lighter desert sage for decorative lines */
             --bg: #fcf9f5;           /* very light reddish tan */
             --bg-header: #e4ebee;    /* dusty river blue for the menu bar */
         }
@@ -40,19 +40,9 @@
 
         /* Top bar */
         .site-header {
-            background: linear-gradient(to bottom, #657a58, var(--accent));
-            box-shadow: 0 2px 6px rgba(40, 50, 35, 0.15);
-        }
-
-        /* Stripes above the green: red rock, then turquoise */
-        .site-header::before {
-            content: "";
-            display: block;
-            height: 14px;
-            background: linear-gradient(to bottom,
-                #a8644b 0 7px,   /* muted red rock */
-                #5f9399 7px 14px /* muted turquoise */
-            );
+            background: var(--bg);
+            border-top: 7px solid var(--accent); /* desert sage bar */
+            border-bottom: 1px solid var(--accent);
         }
 
         .site-header .wrap {
@@ -70,19 +60,18 @@
             font-weight: bold;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--bg);
+            color: var(--accent);
         }
 
         .site-name:hover { text-decoration: none; }
 
         nav a {
-            color: var(--bg);
+            color: var(--accent);
             margin-left: 20px;
             font-size: 0.95rem;
         }
 
         nav a:first-child { margin-left: 0; }
-        nav a:hover { color: #fff; }
 
         /* Intro */
         .intro {
@@ -195,8 +184,9 @@
             </p>
             <p>
                 My dissertation, <em>Efficiency, Uncertainty, and Institutions in Environmental
-                Water Resources Management</em>, is advised by Jonathan Yoder (Chair),
-                Michael Brady, and Kirti Rajagopalan.
+                Water Resources Management</em>, is advised by <a href="https://ses.wsu.edu/faculty/wsu-profile/yoder/">Jonathan Yoder</a> (Chair),
+                <a href="https://ses.wsu.edu/faculty/wsu-profile/bradym/">Michael Brady</a>, and
+                <a href="https://bsyse.wsu.edu/people/faculty/wsu-profile/kirtir">Kirti Rajagopalan</a>.
             </p>
             <p class="contact-line">
                 <a href="mailto:jacob.gifford1@wsu.edu">jacob.gifford1@wsu.edu</a><span>|</span><a href="assets/files/CV.pdf">Curriculum Vitae (PDF)</a>
