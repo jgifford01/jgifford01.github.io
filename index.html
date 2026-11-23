@@ -9,8 +9,11 @@
         :root {
             --text: #222;
             --muted: #5f5f5f;
-            --rule: #d6d6d6;
-            --accent: #8c1d2f;
+            --rule: #dccdbf;
+            --accent: #5b6e4f;       /* sagebrush green, dark enough for link text */
+            --accent-light: #a3b18f; /* lighter sage for decorative lines */
+            --bg: #fcf9f5;           /* very light reddish tan */
+            --bg-header: #e4ebee;    /* dusty river blue for the menu bar */
         }
 
         * { box-sizing: border-box; }
@@ -19,7 +22,7 @@
 
         body {
             margin: 0;
-            background: #fff;
+            background: var(--bg);
             color: var(--text);
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-size: 18px;
@@ -37,7 +40,19 @@
 
         /* Top bar */
         .site-header {
-            border-bottom: 1px solid var(--rule);
+            background: linear-gradient(to bottom, #657a58, var(--accent));
+            box-shadow: 0 2px 6px rgba(40, 50, 35, 0.15);
+        }
+
+        /* Stripes above the green: red rock, then turquoise */
+        .site-header::before {
+            content: "";
+            display: block;
+            height: 14px;
+            background: linear-gradient(to bottom,
+                #a8644b 0 7px,   /* muted red rock */
+                #5f9399 7px 14px /* muted turquoise */
+            );
         }
 
         .site-header .wrap {
@@ -46,26 +61,28 @@
             align-items: baseline;
             flex-wrap: wrap;
             gap: 8px 24px;
-            padding-top: 18px;
-            padding-bottom: 14px;
+            padding-top: 20px;
+            padding-bottom: 16px;
         }
 
         .site-name {
             font-size: 1.25rem;
             font-weight: bold;
-            color: var(--text);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--bg);
         }
 
         .site-name:hover { text-decoration: none; }
 
         nav a {
-            color: var(--muted);
+            color: var(--bg);
             margin-left: 20px;
             font-size: 0.95rem;
         }
 
         nav a:first-child { margin-left: 0; }
-        nav a:hover { color: var(--accent); }
+        nav a:hover { color: #fff; }
 
         /* Intro */
         .intro {
@@ -108,7 +125,7 @@
             font-size: 1.3rem;
             margin: 0 0 14px;
             padding-bottom: 4px;
-            border-bottom: 1px solid var(--rule);
+            border-bottom: 2px solid var(--accent-light);
         }
 
         h3 {
@@ -194,7 +211,7 @@
         <div class="paper">
             <div class="paper-title">Spatiotemporal Tradeoffs in Streamflow Augmentation for Salmonid Recovery</div>
             <div>with M. Scheuerell, R. Khan, and J. Yoder</div>
-            <div class="paper-meta">Public release pending completion of required USGS review.</div>
+            <div class="paper-meta">Public distribution restricted pending USGS Fundamental Science Practices review and approval.</div>
         </div>
 
         <h3>Publications</h3>
@@ -205,7 +222,7 @@
                 <a href="https://doi.org/10.1016/j.wre.2025.100267">[DOI]</a></div>
         </div>
 
-        <h3>Work in Progress</h3>
+        <h3>Works in Progress</h3>
         <div class="paper">
             <div class="paper-title">Policy Instrument Uncertainty in Reservoir Operations for Methane Emissions Targets</div>
             <div>with M. Brady and J. Yoder</div>
